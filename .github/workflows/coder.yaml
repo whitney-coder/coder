@@ -148,7 +148,7 @@ jobs:
 
   gen:
     name: "style/gen"
-    timeout-minutes: 5
+    timeout-minutes: 8
     runs-on: ubuntu-latest
     needs: changes
     if: needs.changes.outputs.docs-only == 'false'
@@ -297,7 +297,7 @@ jobs:
           # systems.
           if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
             echo ::set-output name=cover::true
-            export COVERAGE_FLAGS='-covermode=atomic -coverprofile="gotests.coverage" -coverpkg=./...,github.com/coder/coder/codersdk'
+            export COVERAGE_FLAGS='-covermode=atomic -coverprofile="gotests.coverage" -coverpkg=./...'
           else
             echo ::set-output name=cover::false
           fi
